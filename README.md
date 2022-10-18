@@ -1,2 +1,2 @@
-📚 Functional programming course at FMI Sofia Universit
+# :books: Functional programming course at FMI Sofia Universit
 
