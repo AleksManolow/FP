@@ -1,0 +1,29 @@
+#lang racket
+
+(define(remove-all-no-proc el xs)
+  (cond
+    [(null? xs) xs]
+    [(equal? el (car xs)) (remove-all-no-proc el (cdr xs))]
+    [else (cons (car xs) (remove-all-no-proc el (cdr xs)))]
+    )
+  )
+
+(define(remove-all-proc el xs)
+  (remq* (cons el '()) xs)
+  )
+
+
+
+; without using a predefined procedure
+(equal? (remove-all-no-proc 1 '(1 1 1 2)) '(2))
+(equal? (remove-all-no-proc 1 '(2 5 6)) '(2 5 6))
+(equal? (remove-all-no-proc 1 '(1)) '())
+(equal? (remove-all-no-proc 1 '(1 2 1 1)) '(2))
+(equal? (remove-all-no-proc "RNN" '("CNN" "RNN" "GAN" "RNN")) '("CNN" "GAN"))
+
+; using a predefined procedure
+(equal? (remove-all-proc 1 '(1 1 1 2)) '(2))
+(equal? (remove-all-proc 1 '(2 5 6)) '(2 5 6))
+(equal? (remove-all-proc 1 '(1)) '())
+(equal? (remove-all-proc 1 '(1 2 1 1)) '(2))
+(equal? (remove-all-proc "RNN" '("CNN" "RNN" "GAN" "RNN")) '("CNN" "GAN"))
