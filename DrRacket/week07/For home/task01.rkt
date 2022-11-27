@@ -1,0 +1,10 @@
+#lang racket
+(define(have-matching-lengths xxs yys)
+   (cond
+    [(and (null? xxs) (null? yys)) #t]
+    [(= (length (car xxs)) (length (car yys))) (have-matching-lengths (cdr xxs) (cdr yys))]
+    [else #f])
+  )
+
+(equal? (have-matching-lengths '((1 2 3) (4 5 6) (7 8 9)) '((1 4 7) (2 5 8) (3 6 9))) #t)
+(equal? (have-matching-lengths '((1 2)) '((1 4 7) (2 5 8))) #f)
