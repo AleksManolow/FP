@@ -1,0 +1,13 @@
+#lang racket
+(define(helper f a b result)
+  (if(> a b)
+     (reverse result)
+     (helper f (add1 a) b (cons (cons a (f a)) result))
+     )
+  )
+
+(define(tabulate f)
+  (λ (a b) (helper f a b '()))
+  )
+
+(equal? ((tabulate (λ (x) (* x x))) 1 5) '((1 . 1) (2 . 4) (3 . 9) (4 . 16) (5 . 25)))
