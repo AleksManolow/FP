@@ -1,0 +1,26 @@
+#lang racket
+(define(is-digit-in-this-number digit number)
+  (cond
+    [(< number 0) #f]
+    [(= digit )]
+  )
+  )
+
+(define(sum-counts-iter x d)
+  (helper result counter start-of-the-interval end-of-the-interval)
+  
+
+  )
+
+
+
+
+
+
+(= (sum-counts-iter 1 1) 1)    
+(= (sum-counts-iter 5123 1) 19)    
+(= (sum-counts-iter 1234 8) 10)  
+(= (sum-counts-iter 5555 5) 10)   
+(= (sum-counts-iter 65432 6) 11)   
+(= (sum-counts-iter 70000 1) 11)  
+(= (sum-counts-iter 123321 1) 29) 
